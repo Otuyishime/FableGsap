@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+  <title>Fable</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="fable.ico" />
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+    crossorigin="anonymous">
+
+  <style>
+    .box {
+      height: 100px;
+      width: 100px;
+      border-radius: 10px;
+      margin: 25px;
+    }
+    .green {
+      background-color: #5ce71b;
+    }
+    .blue {
+      background-color: lightskyblue;
+    }
+
+    .animationContainer {
+      margin-top: 50px;
+    }
+
+    .layout {
+      margin: 10px;
+      background-color: #ebebeb;
+    }
+
+    .fadeSlideTo, .fadeSlideFrom, .fadeSlideFromTo {
+      background-color: #df9b1c;
+      color: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+  </style>
+</head>
+<body class="container layout">
+    <button class="play-button btn btn-outline-primary btn-sm">Play Animation</button>
+    <button class="pause-button btn btn-outline-secondary btn-sm">Pause Animation</button>
+    <button class="reverse-button btn btn-outline-secondary btn-sm">Reverse Animation</button>
+    <div class="animationContainer">
+      <div class="box green"></div>
+      <div class="box blue"></div>
+    </div>
+    <!-- <div class="animationContainer">
+      <div class="box fadeSlideTo">to</div>
+      <div class="box fadeSlideFrom">from</div>
+      <div class="box fadeSlideFromTo">fromTo</div>
+    </div> -->
+
+
+
+    <script src="bundle.js"></script>
+</body>
+</html>

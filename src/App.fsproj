@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="types.fs" />
+    <Compile Include="gsapAPI.fs" />
+    <Compile Include="interop.fs" />
+    <Compile Include="animationVars.fs" />
+    <Compile Include="tweenAPI.fs" />
+    <Compile Include="timelineAPI.fs" />
+    <Compile Include="helper.fs" />
+    <Compile Include="tween.fs" />
+    <Compile Include="timeline.fs" />
+    <Compile Include="gsap.fs" />
+    <Compile Include="App.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Fable.Browser.Dom" Version="2.10.0" />
+    <PackageReference Include="Fable.Core" Version="3.7.1" />
+  </ItemGroup>
+</Project>
