@@ -21,6 +21,15 @@ type prop =
     /// (GSAP uses document.querySelectorAll() internally) or it can be direct references to elements,  generic objects, or even an array of objects
     /// </summary>
     /// /// <param name='targets'>List of elements to animate.</param>
+    static member inline target (targets: Browser.Types.Element seq) =
+        if (Seq.isEmpty targets) then failwith "Missing Targets" 
+        Interop.makeAnimationTarget targets
+
+    /// <summary>
+    /// The object(s) whose properties you want to animate. This can be selector text like ".class", "#id", etc. 
+    /// (GSAP uses document.querySelectorAll() internally) or it can be direct references to elements,  generic objects, or even an array of objects
+    /// </summary>
+    /// /// <param name='targets'>List of elements to animate.</param>
     static member inline target (targets: obj seq) =
         if (Seq.isEmpty targets) then failwith "Missing Targets" 
         Interop.makeAnimationTarget targets

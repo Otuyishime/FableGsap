@@ -21,9 +21,6 @@ module internal Interop =
     [<Emit("$0[$1]([$2])")>]
     let createUseEffect (gsap:obj, effectName: string, target: ITarget): unit = jsNative
 
-    // [<Emit("for(var [key, f] of Object.entries($0.effects)) { return f; };")>]
-    // let getEffect (target: IGsapApi, effectName: string): ('F -> unit) = jsNative
-
     let makeObjectFromList vars = (unbox (createObj !!vars))
     let makeAnimationTarget (target: 'T): ITarget = unbox<ITarget> target
     let makeAnimationVar (key: string) (value: 'T): IVar = unbox<IVar> (key, value)
@@ -33,7 +30,7 @@ module internal Interop =
     let makeConfigVars (configs: IConfig seq): IConfigs = unbox<IConfigs> (createObj !!configs)
     let makeConfigVar (key: string) (value: 'T): IConfig = unbox<IConfig> (key, value)
     let makeConfigUnit (key: string) (value: 'T): IUnit = unbox<IUnit> (key, value)
-
+    
     let makeEffectProp (key: string) (value: 'T): IEffectProp = unbox<IEffectProp> (key, value)
     let makeEffect (effectProps: IEffectProp seq): IEffect = unbox<IEffect> (createObj !!effectProps)
 

@@ -3,16 +3,16 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="types.fs" />
-    <Compile Include="gsapAPI.fs" />
-    <Compile Include="interop.fs" />
-    <Compile Include="animationVars.fs" />
-    <Compile Include="tweenAPI.fs" />
-    <Compile Include="timelineAPI.fs" />
-    <Compile Include="helper.fs" />
-    <Compile Include="tween.fs" />
-    <Compile Include="timeline.fs" />
-    <Compile Include="gsap.fs" />
+    <Compile Include="Types.fs" />
+    <Compile Include="GsapTypes.fs" />
+    <Compile Include="TimelineTypes.fs" />
+    <Compile Include="TweenTypes.fs" />
+    <Compile Include="Interop.fs" />
+    <Compile Include="Helpers.fs" />
+    <Compile Include="Properties.fs" />
+    <Compile Include="Timeline.fs" />
+    <Compile Include="Tween.fs" />
+    <Compile Include="Gsap.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>
   <ItemGroup>

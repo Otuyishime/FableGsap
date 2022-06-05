@@ -5,6 +5,7 @@ open Fable.Core.JsInterop
 open Browser.Dom
 open FableGsap
 open Fable.Core.JS
+open Fable.Import
 
 
 
@@ -15,7 +16,7 @@ let wSet = 10<Rep>
 
 
 // Get a reference to our button and cast the Element to an HTMLButtonElement
-let playButton = document.querySelector(".play-button") :?> Browser.Types.HTMLButtonElement
+let playButton: Browser.Types.HTMLButtonElement = document.querySelector(".play-button") :?> Browser.Types.HTMLButtonElement
 let pauseButton = document.querySelector(".pause-button") :?> Browser.Types.HTMLButtonElement
 let reverseButton = document.querySelector(".reverse-button") :?> Browser.Types.HTMLButtonElement
 
@@ -45,13 +46,16 @@ Gsap.registerEffect [
         var.custom ("borderRadius", 100)
       ]
       console.log newVars
-      Gsap.to_(targets, prop.vars newVars)
+      Gsap.to_(
+        targets, 
+        prop.vars newVars
+      )
   )
 ]
 
 Gsap.effects.execute (
   "fadeSlideTo", 
-  prop.target [ box myBlueBox ]
+  prop.target [ myBlueBox ]
 )
 
 //console.log (Gsap.effects.addAnything "a" "b")
@@ -98,26 +102,27 @@ Gsap.effects.execute (
 
 
 
-let animation = 
+let anim = 
     Gsap.to_ (
         prop.target [ 
-            box myGreenBox
+          myGreenBox 
         ],
         prop.vars [
-            var.x 500
-            var.rotation 180
-            var.duration 1
-            var.ease.power2InOut
-            var.paused true
-            var.backgroundColor "red"
-            var.custom ("borderRadius", 100)
+          var.x 500
+          var.rotation 180
+          var.duration 1
+          var.ease.power2InOut
+          var.paused true
+          var.backgroundColor "red"
+          var.custom ("borderRadius", 100)
         ]
     )
-//console.log animation
 
-playButton.onclick <- (fun e -> animation |> Tween.play |> ignore)
-pauseButton.onclick <- (fun e -> animation |> Tween.pause |> ignore)
-reverseButton.onclick <- (fun e -> animation |> Tween.reverse |> ignore)
+let timeline = Gsap.timeline (prop.vars [])
+
+playButton.onclick <- (fun e -> anim |> Tween.play |> ignore)
+pauseButton.onclick <- (fun e -> anim |> Tween.pause |> ignore)
+reverseButton.onclick <- (fun e -> anim |> Tween.reverse |> ignore)
 
 // let tl = Gsap.timeline (prop.vars [])
 // let t = tl |> Timeline.useEffect ("fadeSlideTo", prop.target [ box myBlueBox ], prop.vars [ var.duration 3 ])
