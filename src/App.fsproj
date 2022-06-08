@@ -13,6 +13,9 @@
     <Compile Include="Timeline.fs" />
     <Compile Include="Tween.fs" />
     <Compile Include="Gsap.fs" />
+    <Compile Include="Docs/Gsap.Docs.fs" />
+    <Compile Include="Docs/Timeline.Docs.fs" />
+    <Compile Include="Docs/Tween.Docs.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>
   <ItemGroup>

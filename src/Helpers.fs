@@ -19,17 +19,17 @@ module internal Helpers =
         | callbackType.OnUpdate -> "onUpdate"
 
     let TryGetTween (t: obj) =
-        if (Interop.IsNullOrUndefined t) || not (Interop.IsTween t)
+        if (isNullOrUndefined t) || not (Interop.IsTween t)
         then None 
         else Some (t :?> ITween)
 
     let TryGetTimeline (t: obj) =
-        if (Interop.IsNullOrUndefined t) || not (Interop.IsTimeline t)
+        if (isNullOrUndefined t) || not (Interop.IsTimeline t)
         then None 
         else Some (t :?> ITimeline)
 
     let TryGetCallback f =
-        if (Interop.IsNullOrUndefined f) || not (Interop.IsFunction f)
+        if (isNullOrUndefined f) || not (Interop.IsFunction f)
         then None 
         else Some f
 

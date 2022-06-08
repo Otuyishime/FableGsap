@@ -98,6 +98,7 @@ type internal ITimelineAPI =
 
     abstract timeScale: unit -> float
     abstract timeScale: value:float -> ITimeline
+    
     [<Emit("$0.to($1, $2)")>]
     abstract to_: target:'T * vars:'V -> ITimeline
     [<Emit("$0.to($1, $2, $3)")>]

@@ -202,6 +202,11 @@ type var =
     static member inline opacity (cssUnit: _unit) = Interop.makeConfigUnit "opacity" cssUnit
     static member inline opacity () = "opacity"
 
+    static member inline autoAlpha (value: float) = Interop.makeAnimationVar "autoAlpha" value
+    static member inline autoAlpha (setterFunc: (int * 'element * 'element seq) -> float) = Interop.makeAnimationVar "autoAlpha" setterFunc
+    static member inline autoAlpha (cssUnit: _unit) = Interop.makeConfigUnit "autoAlpha" cssUnit
+    static member inline autoAlpha () = "autoAlpha"
+
     static member inline top (value: int) = Interop.makeAnimationVar "top" value
     static member inline top (setterFunc: (int * 'element * 'element seq) -> int) = Interop.makeAnimationVar "top" setterFunc
     static member inline top (cssUnit: _unit) = Interop.makeConfigUnit "top" cssUnit
@@ -307,6 +312,15 @@ type var =
     static member inline custom (cssProperty: string, value: float) =  Interop.makeAnimationVar cssProperty value
     /// Custom var for missing css properties. Be careful and use this for animatable properties only.
     static member inline custom (cssProperty: string, value: string) =  Interop.makeAnimationVar cssProperty value
+
+    static member inline custom (cssProperty: string, setterFunc: (int * 'element * 'element seq) -> float) =  Interop.makeAnimationVar cssProperty setterFunc
+    static member inline custom (cssProperty: string, setterFunc: (int * 'element * 'element seq) -> int) =  Interop.makeAnimationVar cssProperty setterFunc
+    static member inline custom (cssProperty: string, setterFunc: (int * 'element * 'element seq) -> string) =  Interop.makeAnimationVar cssProperty setterFunc
+    
+    // static member inline getVarNames (vars: ('T -> IVar) seq) = 
+    //     vars
+    //     |> Seq.map (fun v -> nameof v) 
+    //     |> Seq.reduce (fun s1 s2 -> s1 + ", " + s2)
 
 /// <summary>
 /// Describes gsap var.

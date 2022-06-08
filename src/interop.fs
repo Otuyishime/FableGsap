@@ -6,11 +6,12 @@ open Fable.Core.JsInterop
 [<RequireQualifiedAccessAttribute>]
 module internal Interop =
     let gsapApi: IGsapApi = importDefault "gsap"
-    let IsNullOrUndefined = isNullOrUndefined
     let IsFunction f = (jsTypeof f = "function")
-    let IsTypeOf name t = (jsTypeof t = name)
-    let IsTween t = IsTypeOf "Tween" t
-    let IsTimeline t = IsTypeOf "Timeline" t
+    let IsTween t = (jsTypeof t) = "Tween"
+    let IsTimeline t = (jsTypeof t) = "Timeline"
+
+    [<Emit "undefined">]
+    let undefined : obj = jsNative
 
     [<Emit("$0[$1]($2)")>]
     let createTimelineUseEffect (timeline: ITimeline) (effectName) (target: ITarget): ITimeline = jsNative
@@ -21,18 +22,18 @@ module internal Interop =
     [<Emit("$0[$1]([$2])")>]
     let createUseEffect (gsap:obj, effectName: string, target: ITarget): unit = jsNative
 
-    let makeObjectFromList vars = (unbox (createObj !!vars))
-    let makeAnimationTarget (target: 'T): ITarget = unbox<ITarget> target
-    let makeAnimationVar (key: string) (value: 'T): IVar = unbox<IVar> (key, value)
-    let makeAnimationVars (animationVars: IVar seq): IVars = unbox<IVars> (createObj !!animationVars)
-    let makeAnimationPosition (position: 'T): IPosition = unbox<IPosition> position
+    let inline makeObjectFromList vars = (unbox (createObj !!vars))
+    let inline makeAnimationTarget (target: 'T): ITarget = unbox<ITarget> target
+    let inline makeAnimationVar (key: string) (value: 'T): IVar = unbox<IVar> (key, value)
+    let inline makeAnimationVars (animationVars: IVar seq): IVars = unbox<IVars> (createObj !!animationVars)
+    let inline makeAnimationPosition (position: 'T): IPosition = unbox<IPosition> position
 
-    let makeConfigVars (configs: IConfig seq): IConfigs = unbox<IConfigs> (createObj !!configs)
-    let makeConfigVar (key: string) (value: 'T): IConfig = unbox<IConfig> (key, value)
-    let makeConfigUnit (key: string) (value: 'T): IUnit = unbox<IUnit> (key, value)
+    let inline makeConfigVars (configs: IConfig seq): IConfigs = unbox<IConfigs> (createObj !!configs)
+    let inline makeConfigVar (key: string) (value: 'T): IConfig = unbox<IConfig> (key, value)
+    let inline makeConfigUnit (key: string) (value: 'T): IUnit = unbox<IUnit> (key, value)
     
-    let makeEffectProp (key: string) (value: 'T): IEffectProp = unbox<IEffectProp> (key, value)
-    let makeEffect (effectProps: IEffectProp seq): IEffect = unbox<IEffect> (createObj !!effectProps)
+    let inline makeEffectProp (key: string) (value: 'T): IEffectProp = unbox<IEffectProp> (key, value)
+    let inline makeEffect (effectProps: IEffectProp seq): IEffect = unbox<IEffect> (createObj !!effectProps)
 
     [<Emit("$0[$1]")>]
     let makeGetConfigValue (config: obj) (name: string): 'T = jsNative

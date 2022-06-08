@@ -45,7 +45,6 @@ Gsap.registerEffect [
         var.repeat -1
         var.custom ("borderRadius", 100)
       ]
-      console.log newVars
       Gsap.to_(
         targets, 
         prop.vars newVars
@@ -102,27 +101,13 @@ Gsap.effects.execute (
 
 
 
-let anim = 
-    Gsap.to_ (
-        prop.target [ 
-          myGreenBox 
-        ],
-        prop.vars [
-          var.x 500
-          var.rotation 180
-          var.duration 1
-          var.ease.power2InOut
-          var.paused true
-          var.backgroundColor "red"
-          var.custom ("borderRadius", 100)
-        ]
-    )
-
-let timeline = Gsap.timeline (prop.vars [])
+let anim = GsapExamples.example_to myGreenBox
 
 playButton.onclick <- (fun e -> anim |> Tween.play |> ignore)
 pauseButton.onclick <- (fun e -> anim |> Tween.pause |> ignore)
 reverseButton.onclick <- (fun e -> anim |> Tween.reverse |> ignore)
+
+let timeline = Gsap.timeline (prop.vars [])
 
 // let tl = Gsap.timeline (prop.vars [])
 // let t = tl |> Timeline.useEffect ("fadeSlideTo", prop.target [ box myBlueBox ], prop.vars [ var.duration 3 ])
