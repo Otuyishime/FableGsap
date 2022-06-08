@@ -4,7 +4,7 @@ open Fable.Core
 open Fable.Core.JsInterop
 
 [<RequireQualifiedAccessAttribute>]
-module internal Interop =
+module Interop =
     let gsapApi: IGsapApi = importDefault "gsap"
     let IsFunction f = (jsTypeof f = "function")
     let IsTween t = (jsTypeof t) = "Tween"

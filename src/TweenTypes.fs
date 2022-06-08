@@ -1,7 +1,7 @@
 namespace FableGsap
 open System
 
-type internal ITweenAPI = 
+type ITweenAPI = 
     abstract delay: unit -> int
     abstract delay: value: int -> ITween
 

@@ -1,10 +1,10 @@
 namespace FableGsap
 open Fable.Core
 
-type IConfig= 
-    abstract duration: int with get
+// type IConfig= 
+//     abstract duration: int with get
 
-type internal ITicker = 
+type ITicker = 
     abstract add: callBack: (unit -> unit) -> unit
     abstract deltaRatio: fps: float -> unit
     abstract fps: value: float -> unit
@@ -16,13 +16,13 @@ type internal ITicker =
     abstract frame: float
     abstract time: float
 
-type internal IUtils = 
+type IUtils = 
     abstract checkPrefix: property:string * element:'E * preferPrefix:bool -> unit
     abstract clamp: minimum:float -> maximum:float -> valueToClamp:float -> unit
     abstract getUnit: value:string -> string
     abstract snap:  snapTo: float -> value: float -> float
 
-type internal IGlobalTimeline = 
+type IGlobalTimeline = 
     abstract pause: unit -> ITimeline
     abstract pause: atTime:float * suppressEvents:bool -> ITimeline
     abstract play: unit -> ITimeline
@@ -32,7 +32,7 @@ type internal IGlobalTimeline =
     abstract timeScale: unit -> float
     abstract timeScale: value:float -> ITimeline
 
-type internal IGsapApi = 
+type IGsapApi = 
     abstract from: target: ITarget * vars: 'V -> ITween
     abstract fromTo: target: ITarget * fromVars: 'V * toVars: 'V -> ITween
     [<Emit("$0.to($1, $2)")>]

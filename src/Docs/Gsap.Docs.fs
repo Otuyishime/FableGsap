@@ -128,19 +128,17 @@ module GsapExamples =
                 prop.target [
                     box target
                 ],
-                [
-                    var.x ()
-                    var.opacity ()
+                var.getNames [
+                    var.x
+                    var.duration
                 ]
             )
 
-            // Or pass css units
+            // Or kill for all target properties
             // Gsap.getProperty (
             //     prop.target [
             //         box target
-            //     ],
-            //     "width",
-            //     _unit.Em
+            //     ]
             // )
 
     let example_to = 

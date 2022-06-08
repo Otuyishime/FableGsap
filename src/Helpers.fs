@@ -1,7 +1,7 @@
 namespace FableGsap
 open Fable.Core.JsInterop
 
-module internal Helpers =
+module Helpers =
 
     let IsFunction = Interop.IsFunction
     let GetFunction someFunc  = 

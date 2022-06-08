@@ -317,10 +317,7 @@ type var =
     static member inline custom (cssProperty: string, setterFunc: (int * 'element * 'element seq) -> int) =  Interop.makeAnimationVar cssProperty setterFunc
     static member inline custom (cssProperty: string, setterFunc: (int * 'element * 'element seq) -> string) =  Interop.makeAnimationVar cssProperty setterFunc
     
-    // static member inline getVarNames (vars: ('T -> IVar) seq) = 
-    //     vars
-    //     |> Seq.map (fun v -> nameof v) 
-    //     |> Seq.reduce (fun s1 s2 -> s1 + ", " + s2)
+    static member inline getNames (vars: (unit -> string) seq) = vars |> Seq.map (fun v -> v())
 
 /// <summary>
 /// Describes gsap var.

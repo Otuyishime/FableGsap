@@ -1,7 +1,7 @@
 namespace FableGsap
 open Fable.Core
 
-type internal ITimelineAPI = 
+type ITimelineAPI = 
     abstract add: child:'T * position:'A -> ITimeline
     abstract addLabel: label:string * position:'A -> ITimeline
     
