@@ -1,8 +1,8 @@
-### Gsap - Documentation
+### Gsap - Methods
 ---
 
 #### Methods
-##### gsap.config()
+#### gsap.config()
 For more information, check [Official Documentation](https://greensock.com/docs/v3/GSAP/gsap.config())
 ```fs
 Gsap.config [
@@ -17,7 +17,7 @@ Gsap.config [
     ]
 ]
 ```
-##### gsap.defaults()
+#### gsap.defaults()
 For more information, check [Official Documentation](https://greensock.com/docs/v3/GSAP/gsap.defaults())
 ```fs
 Gsap.defaults [
