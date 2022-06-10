@@ -128,9 +128,10 @@ module GsapExamples =
                 prop.target [
                     box target
                 ],
-                var.getNames [
+                [
                     var.x
                     var.duration
+                    var.autoAlpha
                 ]
             )
 

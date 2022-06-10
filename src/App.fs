@@ -24,7 +24,7 @@ let myGreenBox = document.querySelector(".green")
 let myBlueBox = document.querySelector(".blue")
 let randomObj = {| x = 10|}
 
-//console.log Interop.gsapApi
+console.log Interop.gsapApi
 
 
 // register effect

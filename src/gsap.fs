@@ -61,9 +61,12 @@ type Gsap =
         Interop.gsapApi.isTweening tartget
 
     static member inline killTweensOf(tartget: ITarget) = 
-        Interop.gsapApi.killTweensOf tartget
-    static member inline killTweensOf(tartget: ITarget, properties: string seq) = 
-        Interop.gsapApi.killTweensOf (tartget, (properties |> Seq.reduce (fun s1 s2 -> s1 + "," + s2)))
+        Interop.gsapApi.killTweensOf tartget Fable.Core.JS.undefined
+    static member inline killTweensOf(target: ITarget, vars: (unit -> string) seq) =
+        vars 
+        |> Seq.map (fun v -> v())
+        |> Seq.reduce (fun s1 s2 -> s1 + "," + s2)
+        |> Interop.gsapApi.killTweensOf target
 
     /// The most common type of animation because it allows you to define the `destination values` 
     /// (and most people think in terms of animating `to` certain values)

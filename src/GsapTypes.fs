@@ -52,8 +52,7 @@ type IGsapApi =
     abstract getTweensOf: tartget: ITarget -> ITween array
     abstract isTweening: tartget: ITarget -> bool
 
-    abstract killTweensOf: tartget: 'T -> unit
-    abstract killTweensOf: tartget: 'T * properties: string -> unit
+    abstract killTweensOf: 't -> 'p -> unit
     
     abstract parseEase: easeStr: string -> (int -> IVar)
     abstract set: target: ITarget * vars: 'V -> ITween
