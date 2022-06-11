@@ -25,16 +25,22 @@ module GsapExamples =
                 var.delay 0.5
             ]
 
-    let example_delayedCall= 
-        fun seconds ->
-            let someFunction seconds = 
-                fun () -> 
-                    Fable.Core.JS.console.log (sprintf "Called after %d seconds..." seconds)
+    let example_delayedCall=
+        let seconds = 5 
+        let someFunction seconds arg1 arg2 = 
+            fun () -> 
+                Fable
+                    .Core
+                    .JS
+                    .console
+                    .log (sprintf "Called after %d seconds with arguments %s and %s" seconds arg1 arg2)
 
+        let tween = 
             Gsap.delayedCall (
                 seconds, 
-                someFunction seconds
+                someFunction seconds "arg1" "arg2"
             )
+        tween
 
     let example_exportRoot = 
         fun () -> Gsap.exportRoot ()

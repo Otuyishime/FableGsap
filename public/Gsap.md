@@ -26,3 +26,26 @@ Gsap.defaults [
     var.delay 0.5
 ]
 ```
+
+#### gsap.delayedCall()
+Returns: `Tween`
+To make things simple, the callback function signature is `unit -> unit`.
+You can use a higher order funtion to pass as arguments as you want. 
+Check example below.
+For more information, check [Official Documentation](https://greensock.com/docs/v3/GSAP/gsap.delayedCall())
+```fs
+let seconds = 5 
+let someFunction seconds arg1 arg2 = 
+    fun () -> 
+        Fable
+            .Core
+            .JS
+            .console
+            .log (sprintf "Called after %d seconds with arguments %s and %s" seconds arg1 arg2)
+
+let tween = 
+    Gsap.delayedCall (
+        seconds, 
+        someFunction seconds "arg1" "arg2"
+    )
+```
