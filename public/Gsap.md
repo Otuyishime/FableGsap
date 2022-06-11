@@ -49,3 +49,74 @@ let tween =
         someFunction seconds "arg1" "arg2"
     )
 ```
+
+#### gsap.exportRoot()
+For more information, check [Official Documentation](https://greensock.com/docs/v3/GSAP/gsap.exportRoot())
+```fs
+let timeline = Gsap.exportRoot ()
+```
+
+#### gsap.from()
+Returns: `Tween`
+For more information, check [Official Documentation](https://greensock.com/docs/v3/GSAP/gsap.from())
+```fs
+let tween = 
+    Gsap.from (
+        prop.target [ 
+            ".class" 
+        ],
+        prop.vars [
+            var.opacity 0.0
+            var.y 100
+            var.duration 1
+            var.custom ("borderRadius", 100)
+        ]
+    )
+```
+
+#### gsap.fromTo()
+Returns: `Tween`
+For more information, check [Official Documentation](https://greensock.com/docs/v3/GSAP/gsap.fromTo())
+```fs
+let tween = 
+    Gsap.fromTo (
+        prop.target [ 
+            ".class" 
+        ],
+        prop.vars [
+            var.opacity 0.0
+            var.autoAlpha 0.0
+            var.y 100
+        ],
+        prop.vars [
+            var.opacity 0.5
+            var.autoAlpha 0.5
+            var.y 300
+            var.duration 1
+        ]
+    )
+```
+
+#### gsap.getById()
+Returns: `Tween` or `Timeline`
+To make things simple, we have two function `getTweenById` and `getTimelineById`.
+`getTweenById` has signature `string -> Option<Tween>`
+`getTimelineById` has signature `string -> Option<Timeline>`
+For more information, check [Official Documentation](https://greensock.com/docs/v3/GSAP/gsap.getById())
+```fs
+let tween = 
+    Gsap.from (
+        prop.target [ 
+            ".class" 
+        ],
+        prop.vars [
+            var.id "someTween"
+            var.opacity 0.0
+            var.y 100
+            var.duration 1
+            var.custom ("borderRadius", 100)
+        ]
+    )
+
+let sameTween = Gsap.getTweenById "someTween"
+```
