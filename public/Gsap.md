@@ -30,7 +30,7 @@ Gsap.defaults [
 #### gsap.delayedCall()
 Returns: `Tween`
 To make things simple, the callback function signature is `unit -> unit`.
-You can use a higher order funtion to pass as arguments as you want. 
+You can use a higher order funtion to pass as many arguments as you want. 
 Check example below.
 For more information, check [Official Documentation](https://greensock.com/docs/v3/GSAP/gsap.delayedCall())
 ```fs
