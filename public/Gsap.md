@@ -11,9 +11,9 @@ Gsap.config [
     config.nullTargetWarn false
     config.trialWarn false
     config.units [
-        var.left _unit.Percentage
-        var.top _unit.Percentage
-        var.rotation _unit.Rad
+        var.left.units _unit.Percentage
+        var.top.units _unit.Percentage
+        var.rotation.units _unit.Rad
     ]
 ]
 ```
@@ -119,4 +119,27 @@ let tween =
     )
 
 let sameTween = Gsap.getTweenById "someTween"
+```
+
+#### gsap.getProperty()
+Returns the value of the property requested as a number (if possible) unless you specify a unit in which case it will be added to the number, making it a string. 
+For more information, check [Official Documentation](https://greensock.com/docs/v3/GSAP/gsap.getProperty())
+```fs
+let value = 
+    Gsap.getProperty (
+        prop.target [
+            box target
+        ],
+        var.right
+    )
+
+// Or pass css units
+let value = 
+    Gsap.getProperty (
+        prop.target [
+            box target
+        ],
+        var.right,
+        _unit.Em
+    ) 
 ```

@@ -11,9 +11,9 @@ module GsapExamples =
                 config.nullTargetWarn false
                 config.trialWarn false
                 config.units [
-                    var.left _unit.Percentage
-                    var.top _unit.Percentage
-                    var.rotation _unit.Rad
+                    var.left.units _unit.Percentage
+                    var.top.units _unit.Percentage
+                    var.rotation.units _unit.Rad
                 ]
             ]
 
@@ -100,15 +100,16 @@ module GsapExamples =
                 prop.target [
                     box target
                 ],
-                "width"
+                var.right
             )
+
 
             // Or pass css units
             // Gsap.getProperty (
             //     prop.target [
             //         box target
             //     ],
-            //     "width",
+            //     var.right,
             //     _unit.Em
             // )
 

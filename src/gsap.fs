@@ -45,11 +45,47 @@ type Gsap =
     /// Returns the value of the property requested as a number (if possible) 
     /// unless you specify a unit in which case it will be added to the number, 
     /// making it a string. Returns None if it doesn’t exist.
-    static member inline getProperty (target: ITarget, var: string, ?cssUnit: _unit): string option =
-        match cssUnit with
-        | Some css_unit -> Interop.gsapApi.getProperty (target, var, css_unit)
-        | None -> Interop.gsapApi.getProperty (target, var)
-    
+    static member inline getProperty (target: ITarget, var: (int -> IVar)): int option =
+        Interop.gsapApi.getProperty (target, (Experimental.nameof var))
+    /// Returns the value of the property requested as a number (if possible) 
+    /// unless you specify a unit in which case it will be added to the number, 
+    /// making it a string. Returns None if it doesn’t exist.
+    static member inline getProperty (target: ITarget, var: (int -> IVar), cssUnit: _unit): string option =
+        Interop.gsapApi.getProperty (target, (Experimental.nameof var), cssUnit)
+
+    /// Returns the value of the property requested as a number (if possible) 
+    /// unless you specify a unit in which case it will be added to the number, 
+    /// making it a string. Returns None if it doesn’t exist.
+    static member inline getProperty (target: ITarget, var: (float -> IVar)): float option =
+        Interop.gsapApi.getProperty (target, (Experimental.nameof var))
+    /// Returns the value of the property requested as a number (if possible) 
+    /// unless you specify a unit in which case it will be added to the number, 
+    /// making it a string. Returns None if it doesn’t exist.
+    static member inline getProperty (target: ITarget, var: (float -> IVar), cssUnit: _unit): string option =
+        Interop.gsapApi.getProperty (target, (Experimental.nameof var), cssUnit)
+
+    /// Returns the value of the property requested as a number (if possible) 
+    /// unless you specify a unit in which case it will be added to the number, 
+    /// making it a string. Returns None if it doesn’t exist.
+    static member inline getProperty (target: ITarget, var: (string -> IVar)): string option =
+        Interop.gsapApi.getProperty (target, (Experimental.nameof var))
+    /// Returns the value of the property requested as a number (if possible) 
+    /// unless you specify a unit in which case it will be added to the number, 
+    /// making it a string. Returns None if it doesn’t exist.
+    static member inline getProperty (target: ITarget, var: (string -> IVar), cssUnit: _unit): string option =
+        Interop.gsapApi.getProperty (target, (Experimental.nameof var), cssUnit)
+
+    /// Returns the value of the property requested as a number (if possible) 
+    /// unless you specify a unit in which case it will be added to the number, 
+    /// making it a string. Returns None if it doesn’t exist.
+    static member inline getProperty (target: ITarget, var: string): string option =
+        Interop.gsapApi.getProperty (target, var)
+    /// Returns the value of the property requested as a number (if possible) 
+    /// unless you specify a unit in which case it will be added to the number, 
+    /// making it a string. Returns None if it doesn’t exist.
+    static member inline getProperty (target: ITarget, var: string, cssUnit: _unit): string option =
+        Interop.gsapApi.getProperty (target, var, cssUnit)
+
     /// Returns an array containing all the tweens of a particular target (or group of targets) 
     /// that have not yet been released for garbage collection.
     static member inline getTweensOf (target: ITarget) = 

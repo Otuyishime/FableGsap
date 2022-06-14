@@ -189,60 +189,46 @@ type var =
 
     static member inline duration (value: int) = Interop.makeAnimationVar "duration" value
     static member inline duration (setterFunc: (int * 'element * 'element seq) -> int) = Interop.makeAnimationVar "duration" setterFunc
-    static member inline duration (cssUnit: _unit) = Interop.makeConfigUnit "duration" cssUnit
     static member inline duration () = "x"
 
     static member inline rotation (value: int) = Interop.makeAnimationVar "rotation" value
     static member inline rotation (setterFunc: (int * 'element * 'element seq) -> int) = Interop.makeAnimationVar "rotation" setterFunc
-    static member inline rotation (cssUnit: _unit) = Interop.makeConfigUnit "rotation" cssUnit
     static member inline rotation () = "rotation"
 
     static member inline opacity (value: float) = Interop.makeAnimationVar "opacity" value
     static member inline opacity (setterFunc: (int * 'element * 'element seq) -> float) = Interop.makeAnimationVar "opacity" setterFunc
-    static member inline opacity (cssUnit: _unit) = Interop.makeConfigUnit "opacity" cssUnit
     static member inline opacity () = "opacity"
 
     static member inline autoAlpha (value: float) = Interop.makeAnimationVar "autoAlpha" value
     static member inline autoAlpha (setterFunc: (int * 'element * 'element seq) -> float) = Interop.makeAnimationVar "autoAlpha" setterFunc
-    static member inline autoAlpha (cssUnit: _unit) = Interop.makeConfigUnit "autoAlpha" cssUnit
     static member inline autoAlpha () = "autoAlpha"
 
     static member inline top (value: int) = Interop.makeAnimationVar "top" value
     static member inline top (setterFunc: (int * 'element * 'element seq) -> int) = Interop.makeAnimationVar "top" setterFunc
-    static member inline top (cssUnit: _unit) = Interop.makeConfigUnit "top" cssUnit
     static member inline top () = "top"
 
     static member inline right (value: int) = Interop.makeAnimationVar "right" value
     static member inline right (setterFunc: (int * 'element * 'element seq) -> int) = Interop.makeAnimationVar "right" setterFunc
-    static member inline right (cssUnit: _unit) = Interop.makeConfigUnit "right" cssUnit
     static member inline right () = "right"
 
     static member inline left (value: int) = Interop.makeAnimationVar "left" value
     static member inline left (setterFunc: (int * 'element * 'element seq) -> int) = Interop.makeAnimationVar "left" setterFunc
-    static member inline left (cssUnit: _unit) = Interop.makeConfigUnit "left" cssUnit
     static member inline left () = "left"
 
     static member inline bottom (value: int) = Interop.makeAnimationVar "bottom" value
     static member inline bottom (setterFunc: (int * 'element * 'element seq) -> int) = Interop.makeAnimationVar "bottom" setterFunc
-    static member inline bottom (cssUnit: _unit) = Interop.makeConfigUnit "bottom" cssUnit
     static member inline bottom () = "bottom"
 
     static member inline x (value: int) = Interop.makeAnimationVar "x" value
-    static member inline x (value: string) = Interop.makeAnimationVar "x" value
     static member inline x (setterFunc: (int * 'element * 'element seq) -> int) = Interop.makeAnimationVar "x" setterFunc
-    static member inline x (cssUnit: _unit) = Interop.makeConfigUnit "x" cssUnit
     static member inline x () = "x"
 
     static member inline y (value: int) = Interop.makeAnimationVar "y" value
-    static member inline y (value: string) = Interop.makeAnimationVar "y" value
     static member inline y (setterFunc: (int * 'element * 'element seq) -> int) = Interop.makeAnimationVar "y" setterFunc
-    static member inline y (cssUnit: _unit) = Interop.makeConfigUnit "y" cssUnit
     static member inline y () = "y"
 
     static member inline z (value: int) = Interop.makeAnimationVar "z" value
-    static member inline z (value: string) = Interop.makeAnimationVar "z" value
     static member inline z (setterFunc: (int * 'element * 'element seq) -> int) = Interop.makeAnimationVar "z" setterFunc
-    static member inline z (cssUnit: _unit) = Interop.makeConfigUnit "z" cssUnit
     static member inline z () = "z"
 
     static member inline xPercent (value: float) = Interop.makeAnimationVar "xPercent" value
@@ -266,7 +252,6 @@ type var =
     static member inline stagger () = "stagger"
 
     static member inline scale (value: float) = Interop.makeAnimationVar "scale" value
-    static member inline scale (cssUnit: _unit) = Interop.makeConfigUnit "scale" cssUnit
     static member inline scale (setterFunc: (int * 'element * 'element seq) -> float) = Interop.makeAnimationVar "scale" setterFunc
     static member inline scale () = "scale"
 
@@ -323,6 +308,43 @@ type var =
 /// Describes gsap var.
 /// </summary>
 module var =
+
+    [<Erase>]
+    type duration = 
+        static member inline units (cssUnit: _unit) = Interop.makeConfigUnit "duration" cssUnit
+    [<Erase>]
+    type rotation = 
+        static member inline units (cssUnit: _unit) = Interop.makeConfigUnit "rotation" cssUnit
+    [<Erase>]
+    type opacity = 
+        static member inline units (cssUnit: _unit) = Interop.makeConfigUnit "opacity" cssUnit
+    [<Erase>]
+    type autoAlpha = 
+        static member inline units (cssUnit: _unit) = Interop.makeConfigUnit "autoAlpha" cssUnit
+    [<Erase>]
+    type right = 
+        static member inline units (cssUnit: _unit) = Interop.makeConfigUnit "right" cssUnit
+    [<Erase>]
+    type left = 
+        static member inline units (cssUnit: _unit) = Interop.makeConfigUnit "left" cssUnit
+    [<Erase>]
+    type bottom = 
+        static member inline units (cssUnit: _unit) = Interop.makeConfigUnit "bottom" cssUnit
+    [<Erase>]
+    type top = 
+        static member inline units (cssUnit: _unit) = Interop.makeConfigUnit "top" cssUnit
+    [<Erase>]
+    type x = 
+        static member inline units (cssUnit: _unit) = Interop.makeConfigUnit "x" cssUnit
+    [<Erase>]
+    type y = 
+        static member inline units (cssUnit: _unit) = Interop.makeConfigUnit "y" cssUnit
+    [<Erase>]
+    type z = 
+        static member inline units (cssUnit: _unit) = Interop.makeConfigUnit "z" cssUnit
+    [<Erase>]
+    type scale = 
+        static member inline units (cssUnit: _unit) = Interop.makeConfigUnit "scale" cssUnit
     
     [<Erase>]
     type ease =
